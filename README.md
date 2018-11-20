@@ -76,8 +76,34 @@ and may also be used independently outside Rails.
 4. Optional - Add Nodemon node packge for auto-restart application on file change:
 
        $ npm install -g nodemon
+       $ copy rails.sh to the project directory
+       $ copy nodemon.json to the project directory
        $ sudo chmod +x rails.sh 
        $ nodemon -L --exec "./rails.sh"
+
+       nodemon.json
+       ```json
+       {
+        "ignore": [
+                ".git",
+                "node_modules/**/node_modules"
+        ],
+        "watch": [
+                "app/",
+                "config/",
+                "db/"
+        ],
+        "ext": "rb yml js css scss"
+        }
+        ```
+
+        rails.sh
+       ```ruby
+        kill -9 `cat tmp/pids/server.pid`
+        echo "APP READY!!!"
+        echo "Ruby on Rails"
+        rails s 
+        ```
 
 5. Go to `http://localhost:3000` and you'll see:
 "Yay! You’re on Rails!"
