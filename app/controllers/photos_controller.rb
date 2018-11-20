@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-
   def create 
     begin
       photo = Photo.create!(photo_params)
@@ -17,7 +16,8 @@ class PhotosController < ApplicationController
     flash[:alert] = "Photo deleted successfully."
     redirect_back fallback_location: { action: "show"}
   end
-
+ 
+  #Private methods
   private
   def photo_params
     params.require(:photo).permit(:attachment, :category_id, :id)

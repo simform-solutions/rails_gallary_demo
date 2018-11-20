@@ -1,6 +1,5 @@
 module Endpoints
   class Categories < Grape::API
-    
     resource :categories do
       desc 'Gel all categories' do
         headers AuthenticationToken: {

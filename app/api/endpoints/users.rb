@@ -1,10 +1,9 @@
 module Endpoints
   class Users < Grape::API
-    resource :users do
-      
+    resource :users do     
       desc 'Login user' do
         params Entities::UsersEntity.documentation.except(:id)
-        success model: Entities::UsersEntity , examples: { 'application/json' => { status: "1", message: "Login Successful", data: User.first.as_json(only: [:id, :email, :authentication_token])  } }
+        success model: Entities::UsersEntity , examples: { 'application/json' => { status: "1", message: "Login Successful", data: "{ id: 0, email: 'emailadress@.com',authentication_token: 'token'}" } }
         failure [ { code: 422, message:  "Response message => { status: '0', message: 'Invalid email or password', data: []}"  } ]
       end
       post '/login' do

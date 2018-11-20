@@ -1,6 +1,5 @@
 module Endpoints
   class Photos < Grape::API
-
     resource :photos do
       desc 'Upload photo'do
         headers AuthenticationToken: {

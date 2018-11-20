@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  #Custom controllers methos
   def index
     @categories = Category.all
   end

@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   #swagger url
   mount GrapeSwaggerRails::Engine => '/swagger' 
   mount API => '/'
-  
 end
